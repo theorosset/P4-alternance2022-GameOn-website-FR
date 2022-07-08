@@ -19,17 +19,15 @@ function formValidation() {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    checkBoxValid();
-    birthdateValid();
-    validQuantity();
     if (
       firstNameValid() === true &&
       emailValid(form.email) === true &&
       lastNameValid() === true &&
       birthdateValid() === true &&
-      checkBoxAreChecked() === true
+      checkBoxAreChecked() === true &&
+      validQuantity() === true
     ) {
-      console.log("go");
+      return alert("Votre réservation est confirmer !");
     } else {
       return playAllFunctionVerif();
     }
@@ -39,6 +37,7 @@ function formValidation() {
 //-------------function for validation input form----------
 
 /**
+ * enlever les return inutile
  *
  * @param {HtmlInputElement} inputEmail
  * @returns errors if email are not valid
@@ -47,7 +46,6 @@ function emailValid(inputEmail) {
   let emailRegExp = new RegExp(
     "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,15}$"
   );
-  console.log(inputEmail);
   let emailTest = emailRegExp.test(inputEmail.value);
 
   /**
@@ -60,7 +58,7 @@ function emailValid(inputEmail) {
 
   //else nothing are add
   else {
-    return (document.querySelector("#errorEmail").innerText = "");
+    return (document.querySelector("#errorEmail").innerText = ""), true;
   }
 }
 
@@ -94,8 +92,8 @@ function validate(trueOrFalse) {
 //show error if firstName has < 2
 function firstNameValid() {
   if (form.first.value.length < 2) {
-    return (document.querySelector("#errorFirstName").innerText =
-      "Votre Prénom doit faire minimum 2 caratère");
+    document.querySelector("#errorFirstName").innerText =
+      "Votre Prénom doit faire minimum 2 caratère";
   } else {
     return (document.querySelector("#errorFirstName").innerText = ""), true;
   }
@@ -121,7 +119,6 @@ function birthdateValid() {
 }
 
 function validQuantity() {
-  console.log(parseInt(form.quantity.value));
   if (
     (parseInt(form.quantity.value) < 0 && parseInt(form.quantity.value) > 99) ||
     !form.quantity.value
@@ -129,7 +126,7 @@ function validQuantity() {
     return (document.querySelector("#errorQuantity").innerText =
       "Veuilliez entrer une valeur valide (entre 0 et 100)");
   } else {
-    return (document.querySelector("#errorQuantity").innerText = "");
+    return (document.querySelector("#errorQuantity").innerText = ""), true;
   }
 }
 function playAllFunctionVerif() {
