@@ -24,7 +24,8 @@ function formValidation() {
       lastNameValid() === true &&
       birthdateValid() === true &&
       checkBoxAreChecked() === true &&
-      validQuantity() === true
+      validQuantity() === true &&
+      checkBoxCondtion() === true
     ) {
       alert("Votre réservation est confirmer");
       document.location.href = "./index.html";
@@ -73,6 +74,15 @@ function checkBoxAreChecked() {
     }
   });
   return checkBoxChecked;
+}
+
+function checkBoxCondtion() {
+  if (form.checkbox1.checked === false) {
+    return (document.querySelector("#errorCondition").innerText =
+      "Veuillez accepter les conditions d'utilisation");
+  } else {
+    return (document.querySelector("#errorCondition").innerText = ""), true;
+  }
 }
 
 //checkBox show error if not check
@@ -137,6 +147,7 @@ function playAllFunctionVerif() {
   lastNameValid();
   birthdateValid();
   checkBoxAreChecked();
+  checkBoxCondtion();
 }
 
 formValidation();

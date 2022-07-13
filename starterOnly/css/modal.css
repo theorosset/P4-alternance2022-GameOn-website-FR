@@ -525,7 +525,8 @@ footer {
 #errorEmail,
 #errorCheckBox,
 #errorQuantity,
-#errorBirthday {
+#errorBirthday,
+#errorCondition {
   color: red;
   font-size: medium;
 }
