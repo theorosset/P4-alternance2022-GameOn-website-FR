@@ -27,7 +27,7 @@ function formValidation() {
       validQuantity() === true &&
       checkBoxCondtion() === true
     ) {
-      alert("Votre réservation est confirmer");
+      alert("Votre réservation est confirmée");
       document.location.href = "./index.html";
     } else {
       return playAllFunctionVerif();
@@ -103,7 +103,7 @@ function validate(trueOrFalse) {
 function firstNameValid() {
   if (form.first.value.length < 2) {
     document.querySelector("#errorFirstName").innerText =
-      "Votre Prénom doit faire minimum 2 caratère";
+      "Votre Prénom doit faire minimum 2 caratères";
   } else {
     return (document.querySelector("#errorFirstName").innerText = ""), true;
   }
@@ -113,7 +113,7 @@ function firstNameValid() {
 function lastNameValid() {
   if (form.last.value.length < 2) {
     return (document.querySelector("#errorLastName").innerText =
-      "Votre Nom doit faire minimum 2 caratère");
+      "Votre Nom doit faire minimum 2 caratères");
   } else {
     return (document.querySelector("#errorLastName").innerText = ""), true;
   }
@@ -122,7 +122,7 @@ function lastNameValid() {
 function birthdateValid() {
   if (!form.birthdate.value.length) {
     return (document.querySelector("#errorBirthday").innerText =
-      "Veuilliez entrez votre date de naissance");
+      "Veuillez entrer votre date de naissance");
   } else {
     return (document.querySelector("#errorBirthday").innerText = ""), true;
   }
@@ -134,7 +134,7 @@ function validQuantity() {
     !form.quantity.value
   ) {
     return (document.querySelector("#errorQuantity").innerText =
-      "Veuilliez entrer une valeur valide (entre 0 et 100)");
+      "Veuillez entrer une valeur valide (entre 0 et 100)");
   } else {
     return (document.querySelector("#errorQuantity").innerText = ""), true;
   }
