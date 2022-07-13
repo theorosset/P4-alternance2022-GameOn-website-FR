@@ -16,7 +16,6 @@ function formValidation() {
   form.last.addEventListener("input", (e) => {
     lastNameValid();
   });
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (
@@ -27,7 +26,8 @@ function formValidation() {
       checkBoxAreChecked() === true &&
       validQuantity() === true
     ) {
-      return alert("Votre réservation est confirmer !");
+      alert("Votre réservation est confirmer");
+      document.location.href = "./index.html";
     } else {
       return playAllFunctionVerif();
     }
