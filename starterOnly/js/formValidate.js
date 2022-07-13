@@ -101,7 +101,8 @@ function validate(trueOrFalse) {
 
 //show error if firstName has < 2
 function firstNameValid() {
-  if (form.first.value.length < 2) {
+  const firstNameTrim = form.last.value.trim();
+  if (firstNameTrim.length < 2) {
     document.querySelector("#errorFirstName").innerText =
       "Votre Prénom doit faire minimum 2 caratères";
   } else {
@@ -111,7 +112,9 @@ function firstNameValid() {
 
 //show error if lastName has < 2
 function lastNameValid() {
-  if (form.last.value.length < 2) {
+  const lastNameTrim = form.last.value.trim();
+
+  if (lastNameTrim.length < 2) {
     return (document.querySelector("#errorLastName").innerText =
       "Votre Nom doit faire minimum 2 caratères");
   } else {
