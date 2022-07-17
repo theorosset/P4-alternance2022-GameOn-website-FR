@@ -58,9 +58,7 @@ function emailValid(inputEmail) {
   }
 
   //else nothing are add
-  else {
-    return (document.querySelector("#errorEmail").innerText = ""), true;
-  }
+  return (document.querySelector("#errorEmail").innerText = ""), true;
 }
 
 //verify if one checkBox are checked
@@ -80,9 +78,8 @@ function checkBoxCondtion() {
   if (form.checkbox1.checked === false) {
     return (document.querySelector("#errorCondition").innerText =
       "Veuillez accepter les conditions d'utilisation");
-  } else {
-    return (document.querySelector("#errorCondition").innerText = ""), true;
   }
+  return (document.querySelector("#errorCondition").innerText = ""), true;
 }
 
 //checkBox show error if not check
@@ -90,9 +87,8 @@ function checkBoxValid() {
   if (checkBoxAreChecked() === false) {
     return (document.querySelector("#errorCheckBox").innerText =
       "Veuillez séletionner une option");
-  } else {
-    return (document.querySelector("#errorCheckBox").innerText = ""), true;
   }
+  return (document.querySelector("#errorCheckBox").innerText = ""), true;
 }
 
 function validate(trueOrFalse) {
@@ -101,13 +97,12 @@ function validate(trueOrFalse) {
 
 //show error if firstName has < 2
 function firstNameValid() {
-  const firstNameTrim = form.last.value.trim();
+  const firstNameTrim = form.first.value.trim();
   if (firstNameTrim.length < 2) {
-    document.querySelector("#errorFirstName").innerText =
-      "Votre Prénom doit faire minimum 2 caratères";
-  } else {
-    return (document.querySelector("#errorFirstName").innerText = ""), true;
+    return (document.querySelector("#errorFirstName").innerText =
+      "Votre Prénom doit faire minimum 2 caratères");
   }
+  return (document.querySelector("#errorFirstName").innerText = ""), true;
 }
 
 //show error if lastName has < 2
@@ -117,18 +112,16 @@ function lastNameValid() {
   if (lastNameTrim.length < 2) {
     return (document.querySelector("#errorLastName").innerText =
       "Votre Nom doit faire minimum 2 caratères");
-  } else {
-    return (document.querySelector("#errorLastName").innerText = ""), true;
   }
+  return (document.querySelector("#errorLastName").innerText = ""), true;
 }
 // show error if birthdate are empty
 function birthdateValid() {
   if (!form.birthdate.value.length) {
     return (document.querySelector("#errorBirthday").innerText =
       "Veuillez entrer votre date de naissance");
-  } else {
-    return (document.querySelector("#errorBirthday").innerText = ""), true;
   }
+  return (document.querySelector("#errorBirthday").innerText = ""), true;
 }
 
 function validQuantity() {
@@ -138,18 +131,17 @@ function validQuantity() {
   ) {
     return (document.querySelector("#errorQuantity").innerText =
       "Veuillez entrer une valeur valide (entre 0 et 100)");
-  } else {
-    return (document.querySelector("#errorQuantity").innerText = ""), true;
   }
+  return (document.querySelector("#errorQuantity").innerText = ""), true;
 }
 function playAllFunctionVerif() {
-  checkBoxValid();
   birthdateValid();
   validQuantity();
   emailValid(form.email);
   lastNameValid();
   birthdateValid();
   checkBoxAreChecked();
+  checkBoxValid();
   checkBoxCondtion();
 }
 
